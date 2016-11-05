@@ -8,12 +8,12 @@ public class Hunted : Player {
     [SerializeField]
     float torchlightRange;
 
-    private bool isOn;
+    Bonus bonus;
+    public bool gotKey;
 
-
-	// Use this for initialization
-	void Start () {
-        isOn = false;
+    // Use this for initialization
+    void Start () {
+        gotKey = false;
     }
    void MoveHunted()
     {
@@ -66,6 +66,15 @@ public class Hunted : Player {
 
         //TODO déplacement progressif
         TorchlightControl();
+
+        if (Input.GetButton("w") && !bonus)
+        {
+            bonus.PickUpBonus();
+        }
+        if (Input.GetButton("w") && bonus)
+        {
+            bonus.UseBonus();
+        }
     }
 }
 
