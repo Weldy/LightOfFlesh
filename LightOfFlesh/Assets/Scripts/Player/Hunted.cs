@@ -39,7 +39,9 @@ public class Hunted : Player {
             );
         }
 
-        if (Input.GetButton("Action"))
+        torchlight.range = 10 * Input.GetAxis("Action");
+
+       /* if (Input.GetAxis("Action") == 1)
         {
             if (isOn)
             {
@@ -52,7 +54,7 @@ public class Hunted : Player {
                 isOn = true;
             }
 
-        }
+        }*/
     }
     
     // Update is called once per frame
