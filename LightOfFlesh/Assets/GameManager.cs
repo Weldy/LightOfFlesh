@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour {
     Camera hunterCam;
 
     [SerializeField]
+    Camera huntedCam;
+
+    [SerializeField]
     float victimeViewDistance;
 
     [SerializeField]
@@ -98,21 +101,27 @@ public class GameManager : MonoBehaviour {
         float angle = Vector2.Angle(new Vector2(lightX, lightY), new Vector2(hunterX, hunterY));
 
         if (distance < hunterViewDistance || (distance < torchLight.range - 2 && angle < torchLight.spotAngle))
-            torchLight.cullingMask = -1;
+        {
             
+            torchLight.cullingMask = -1;
+            huntedCam.cullingMask = -1;
+        }
         else
         {
             torchLight.cullingMask = -513;
+            huntedCam.cullingMask = -513;
         }
 
-        if (distance < hunterViewDistance )
+        if (distance < hunterViewDistance)
+        {
             hunterCam.cullingMask = -257;
-
+            
+        }
         else
         {
             hunterCam.cullingMask = -258;
+          
         }
-        
 
     }
 }
