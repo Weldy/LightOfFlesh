@@ -6,6 +6,7 @@ public class selectLevel : MonoBehaviour {
 
     [SerializeField]
     public string destination;
+
     public void loadLevel()
     {
         SceneManager.LoadScene(destination);
