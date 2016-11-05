@@ -11,9 +11,42 @@ public class Hunted : Player {
     Bonus bonus;
     public bool gotKey;
 
+    private Animator animator;
+
     // Use this for initialization
     void Start () {
         gotKey = false;
+        animator = GetComponent<Animator>();
+    }
+
+    void animate()
+    {
+        if(Input.GetAxis("XBoxHorizontal") == 0 && Input.GetAxis("XBoxVertical") == 0)
+        {
+            animator.SetInteger("moving", 0);
+
+            if (Input.GetAxis("RSY") > 0)
+            {
+                animator.SetInteger("LightDirection", 0);
+            }
+            else if (Input.GetAxis("RSX") > 0)
+                animator.SetInteger("LightDirection", 1);
+            else if(Input.GetAxis("RSX") < 0)
+                animator.SetInteger("LightDirection", 2);
+        }
+        else
+        {
+            animator.SetInteger("moving", 1);
+
+            if (Input.GetAxis("XBoxVertical") > 0)
+            {
+                animator.SetInteger("movingDirection", 0);
+            }
+            else if (Input.GetAxis("XBoxHorizontal") > 0)
+                animator.SetInteger("movingDirection", 1);
+            else if (Input.GetAxis("XBoxHorizontal") < 0)
+                animator.SetInteger("movingDirection", 2);
+        }
     }
    void MoveHunted()
     {
@@ -67,6 +100,7 @@ public class Hunted : Player {
         //TODO déplacement progressif
         TorchlightControl();
 
+        animate();
         /*if (Input.GetButton("w") && !bonus)
         {
             bonus.PickUpBonus();
