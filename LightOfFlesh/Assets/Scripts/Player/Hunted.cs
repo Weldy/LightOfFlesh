@@ -8,7 +8,7 @@ public class Hunted : Player {
     [SerializeField]
     float torchlightRange;
 
-    Bonus bonus;
+    public Bonus bonus;
     public bool gotKey;
 
     private Animator animator;

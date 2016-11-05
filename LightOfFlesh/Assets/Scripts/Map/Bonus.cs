@@ -3,6 +3,7 @@ using System.Collections;
 
 enum BonusType { Cat, Bottle}
 public class Bonus : Item {
+    [SerializeField]
     BonusType bonusType;
 	// Use this for initialization
 	void Start () {
@@ -22,19 +23,19 @@ public class Bonus : Item {
 
     }
 
-    public void PickUpBonus()
+    public void PickUpBonus(Hunted hunted, AudioSource source)
     {
-        if (Input.GetButton("w"))
+        if (Input.GetKey("w") && !hunted.bonus)
         {
-            //TODO UI
 
+            hunted.bonus = this ;
+            gameObject.GetComponent<Renderer>().enabled = false;
         }
     }
 
-    public void UseBonus()
+    public void UseBonus(AudioSource source)
     {
         AudioClip sound;
-        AudioSource source = GetComponent<AudioSource>();
         switch (bonusType)
         {
             case BonusType.Cat:

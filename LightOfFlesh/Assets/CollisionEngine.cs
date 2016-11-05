@@ -9,8 +9,8 @@ public class CollisionEngine : MonoBehaviour
     private bool hasObstacleLeft;
     private bool hasObstacleBottom;
 
-    //[SerializeField]
-    //private GameObject victime;
+    [SerializeField]
+    private Hunted victime;
 
     [SerializeField]
     private Transform rightCheck;
@@ -54,72 +54,244 @@ public class CollisionEngine : MonoBehaviour
         
         hasObstacleBottom = Physics.Linecast(centerCheck.position, bottomCheck.position, out hitBottom, 1 << 0);
 
+        bool colliding = false;
 
-        /*if (hitUp.collider != null)
+        if (hitBottom.collider != null)
         {
-            Plateform plateform = hitUp.collider.GetComponent<Plateform>();
 
-            if (plateform.type == Plateform.TYPE.Obstacle || plateform.type == Plateform.TYPE.MoovingHoriObstacle)
-                hasObstacleUp = true;
-            else
-                hasObstacleUp = false;
-
-        }
-        if (hitGround.collider != null)
-        {
-            Plateform plateform = hitGround.collider.GetComponent<Plateform>();
-
-            if (plateform.type == Plateform.TYPE.HorizontalMooving || plateform.type == Plateform.TYPE.MoovingHoriObstacle)
+            Item item = hitBottom.collider.GetComponent<Item>();
+            if (item)
             {
-                isOnMoovingPlateform = true;
-                MoovingPlateform moovingPlateform = hitGround.collider.GetComponent<MoovingPlateform>();
-                plateformSpeed = moovingPlateform.getHorizontalSpeed();
+                
+                if (item.itemType == ItemType.Trap)
+                {
+                   
+                    Trap trap = (Trap)item;
+                    trap.Activate(victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Bonus)
+                {
+                    Bonus bonus = (Bonus)item;
+                    bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
+                }
+
+
+                if (item.itemType == ItemType.Key)
+                {
+                    Key key = (Key)item;
+                    key.keyCollide(victime, victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Door)
+                {
+                    Door door = (Door)item;
+                    if (door.isOpen)
+                    {
+                        Debug.Log("WINWINWIN");
+                    }
+                    else
+                    {
+                        if (victime.gotKey)
+                        {
+                            door.startOpen(victime.GetComponent<AudioSource>());
+                        }
+                    }
+                }
+                if (item.itemType == ItemType.Obstacle)
+                {
+                    colliding = true;
+                }
             }
-            else
+        }
+
+        if (hitTop.collider != null)
+        {
+
+
+            Item item = hitTop.collider.GetComponent<Item>();
+            if (item)
             {
-                isOnMoovingPlateform = false;
+                if (item.itemType == ItemType.Trap)
+                {
+                    Trap trap = (Trap)item;
+                    trap.Activate(victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Bonus)
+                {
+                    Bonus bonus = (Bonus)item;
+                    bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
+                }
+
+
+                if (item.itemType == ItemType.Key)
+                {
+                    Key key = (Key)item;
+                    key.keyCollide(victime, victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Door)
+                {
+                    Door door = (Door)item;
+                    if (door.isOpen)
+                    {
+                        Debug.Log("WINWINWIN");
+                    }
+                    else
+                    {
+                        if (victime.gotKey)
+                        {
+                            door.startOpen(victime.GetComponent<AudioSource>());
+                        }
+                    }
+                }
+                if (item.itemType == ItemType.Obstacle)
+                {
+                    colliding = true;
+                }
+            }
+        }
+
+        if (hitLeft.collider != null)
+        {
+
+
+            Item item = hitLeft.collider.GetComponent<Item>();
+            if (item)
+            {
+                if (item.itemType == ItemType.Trap)
+                {
+                    Trap trap = (Trap)item;
+                    trap.Activate(victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Bonus)
+                {
+                    Bonus bonus = (Bonus)item;
+                    bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
+                }
+
+
+                if (item.itemType == ItemType.Key)
+                {
+                    Key key = (Key)item;
+                    key.keyCollide(victime, victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Door)
+                {
+                    Door door = (Door)item;
+                    if (door.isOpen)
+                    {
+                        Debug.Log("WINWINWIN");
+                    }
+                    else
+                    {
+                        if (victime.gotKey)
+                        {
+                            door.startOpen(victime.GetComponent<AudioSource>());
+                        }
+                    }
+                }
+                if (item.itemType == ItemType.Obstacle)
+                {
+                    colliding = true;
+                }
+            }
+        }
+
+        if (hitRight.collider != null)
+        {
+
+
+            Item item = hitRight.collider.GetComponent<Item>();
+            if (item)
+            {
+                if (item.itemType == ItemType.Trap)
+                {
+                    Trap trap = (Trap)item;
+                    trap.Activate(victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Bonus)
+                {
+                    Bonus bonus = (Bonus)item;
+                    bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
+                }
+
+
+                if (item.itemType == ItemType.Key)
+                {
+                    Key key = (Key)item;
+                    key.keyCollide(victime, victime.GetComponent<AudioSource>());
+
+                }
+                if (item.itemType == ItemType.Door)
+                {
+                    Door door = (Door)item;
+                    if (door.isOpen)
+                    {
+                        Debug.Log("WINWINWIN");
+                    }
+                    else
+                    {
+                        if (victime.gotKey)
+                        {
+                            door.startOpen(victime.GetComponent<AudioSource>());
+                        }
+                    }
+                }
+                if (item.itemType == ItemType.Obstacle)
+                {
+                    colliding = true;
+                }
+            }
+        }
+
+
+
+        if (colliding)
+        {
+
+            distanceToTop = hitTop.distance;
+
+            distanceToRight = hitRight.distance;
+
+            distanceToLeft = hitLeft.distance;
+
+            distanceToBottom = hitBottom.distance;
+
+            float x = centerCheck.transform.position.x - leftCheck.transform.position.x;
+            float y = centerCheck.transform.position.y - bottomCheck.transform.position.y;
+
+
+            if (hasObstacleBottom)
+            {
+                float offset = Mathf.Abs(y - distanceToBottom);
+                transform.position += (new Vector3(0.0f, offset, 0));
 
             }
-        }*/
 
+            if (hasObstacleRight)
+            {
+                float offset = Mathf.Abs(x - distanceToRight);
+                this.transform.Translate(new Vector2(-offset, 0.0f));
+            }
 
-       
-        distanceToTop = hitTop.distance;
-        
-        distanceToRight = hitRight.distance;
-        
-        distanceToLeft = hitLeft.distance;
+            if (hasObstacleLeft)
+            {
+                float offset = Mathf.Abs(x - distanceToLeft);
+                this.transform.Translate(new Vector2(offset, 0.0f));
+            }
 
-        distanceToBottom = hitBottom.distance;
-
-        float x = centerCheck.transform.position.x - leftCheck.transform.position.x ;  
-        float y = centerCheck.transform.position.y - bottomCheck.transform.position.y;  
-        
-        if (hasObstacleBottom)
-        {
-            float offset = Mathf.Abs(y - distanceToBottom);
-            transform.position += (new Vector3(0.0f, offset, 0));
-        }
-        
-        if (hasObstacleRight)
-        {
-            float offset = Mathf.Abs(x - distanceToRight);
-            this.transform.Translate(new Vector2(-offset, 0.0f));
+            if (hasObstacleTop)
+            {
+                float offset = Mathf.Abs(y - distanceToTop);
+                this.transform.Translate(new Vector2(0.0f, -offset));
+            }
         }
 
-        if (hasObstacleLeft)
-        {
-            float offset = Mathf.Abs(x- distanceToLeft);
-            this.transform.Translate(new Vector2(offset, 0.0f));
-        }
-
-        if (hasObstacleTop)
-        {
-            float offset = Mathf.Abs(y - distanceToTop);
-            this.transform.Translate(new Vector2(0.0f, -offset));
-        }
-
-       
     }
 
 }

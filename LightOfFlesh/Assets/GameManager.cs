@@ -9,10 +9,6 @@ public class GameManager : MonoBehaviour {
     private Queue<eventTypes> events;
     private List<GameObject> bonus;
 
-    [SerializeField]
-    GameObject test1;
-    [SerializeField]
-    GameObject test2;
 
     [SerializeField]
     Light torchLight;
@@ -44,9 +40,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
         events = new Queue<eventTypes>();
         bonus = new List<GameObject>();
-
-        bonus.Add(test1);
-        bonus.Add(test2);
+        
 
         foreach (var item in bonus)
         {

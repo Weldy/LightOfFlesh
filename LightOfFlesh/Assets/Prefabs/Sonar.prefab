@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010677012660}
   - 108: {fileID: 108000013063995956}
   - 114: {fileID: 114000011026608952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sonar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
