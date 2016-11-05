@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:LightOfFlesh/Assets/Resources.meta
 guid: 4f7db628b2b46e64fb236cc8c302ff0e
 folderAsset: yes
 timeCreated: 1478356077
+=======
+guid: 1873048aa44bc644ca2bf24d8a3478c6
+folderAsset: yes
+timeCreated: 1478348686
+>>>>>>> 076748689f055139a61b9850fea9ddf9ee19c869:LightOfFlesh/Assets/Resources.meta
 licenseType: Free
 DefaultImporter:
   userData: 
