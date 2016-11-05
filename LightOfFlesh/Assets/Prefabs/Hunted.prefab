@@ -266,6 +266,7 @@ MonoBehaviour:
   range: 0
   speed: 3
   torchlight: {fileID: 108000011492588992}
+  torchlightRange: 5
 --- !u!114 &114000014257952554
 MonoBehaviour:
   m_ObjectHideFlags: 1

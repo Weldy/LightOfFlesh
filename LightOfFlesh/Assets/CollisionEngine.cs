@@ -43,8 +43,6 @@ public class CollisionEngine : MonoBehaviour
     {
         float x = centerCheck.transform.position.x - rightCheck.transform.position.x;
         float y = centerCheck.transform.position.y - bottomCheck.transform.position.y;
-        Debug.Log(x);
-        Debug.Log(y);
         //this.victime = this.GetComponent<Hunted>();
         //this.GetComponent<Rigidbody>().freezeRotation = true;
     }

@@ -5,6 +5,9 @@ public class Hunted : Player {
     [SerializeField]
     Light torchlight;
 
+    [SerializeField]
+    float torchlightRange;
+
     private bool isOn;
 
 
@@ -39,7 +42,7 @@ public class Hunted : Player {
             );
         }
 
-        torchlight.range = 10 * Input.GetAxis("Action");
+        torchlight.range = torchlightRange * Input.GetAxis("Action");
 
        /* if (Input.GetAxis("Action") == 1)
         {
