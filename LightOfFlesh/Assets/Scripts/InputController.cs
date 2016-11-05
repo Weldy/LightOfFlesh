@@ -12,6 +12,7 @@ public class InputController : MonoBehaviour {
     [SerializeField]
     private Light torchlight;
 
+    private bool isOn = true;
 
     public float MaxSpeed
     {
@@ -54,15 +55,36 @@ public class InputController : MonoBehaviour {
         float x = Input.GetAxis("RSX");
         float y = Input.GetAxis("RSY");
         
-
-        torchlight.transform.eulerAngles = new Vector3(
-            Mathf.Atan2(y, x) * Mathf.Rad2Deg,
+        if(x == 0 && y == 0)
+        {
+            torchlight.transform.eulerAngles = new Vector3(
+            torchlight.transform.eulerAngles.x,
             -90,
             90
             );
+        }else
+        {
+            torchlight.transform.eulerAngles = new Vector3(
+            Mathf.Atan2(-y, -x) * Mathf.Rad2Deg,
+            -90,
+            90
+            );
+        }
 
-        /*print(torchlight.transform.eulerAngles.x);
-        print(torchlight.transform.eulerAngles.y);
-        print(torchlight.transform.eulerAngles.z);*/
+        if (Input.GetButton("Action"))
+        {
+            if (isOn)
+            {
+                torchlight.range = 0;
+                isOn = false;
+            }
+            else
+            {
+                torchlight.range = 10;
+                isOn = true;
+            }
+                
+        }
+        
     }
 }
