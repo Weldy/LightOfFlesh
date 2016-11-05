@@ -6,9 +6,9 @@ public class CubeSpawner : MonoBehaviour {
 
 
     [SerializeField]
-    public int hauteur;
+    public float hauteur;
     [SerializeField]
-    public int longueur;
+    public float longueur;
     [SerializeField]
     public GameObject cubeRouge;
     [SerializeField]
@@ -24,17 +24,18 @@ public class CubeSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         int m = 0;
-        posDispoTotale = new Vector2[(longueur - 2) * (hauteur - 2)];
-        posPrises = new bool[(longueur - 2) * (hauteur - 2)];
-        for (int j = 1; j < (hauteur - 1); j++)
+        posDispoTotale = new Vector2[(int)(longueur - 2) * (int)(hauteur - 2)];
+        posPrises = new bool[(int)(longueur - 2) * (int)(hauteur - 2)];
+        for (float j = ((-hauteur/2)+1); j < ((hauteur/2) - 1); j++)
        {
-            for (int i = 1; i < (longueur - 1); i++)
+            for (float i = ((-longueur/2)+1); i < ((longueur/2) - 1); i++)
             {
                 posDispoTotale[m] = new Vector2(i, j);
                 posPrises[m] = false;
                 m++;
             }
         }
+        
         Vector2 positionCube;
         for ( int i = 0; i < nombreCubeRouge; i++)
         {
@@ -48,6 +49,9 @@ public class CubeSpawner : MonoBehaviour {
             Instantiate(cubeBleu, positionCube, Quaternion.identity);
         }
 
+      //  Vector2 position = new Vector2(0,0);
+       // Instantiate(cubeBleu, position, Quaternion.identity);
+        Debug.Log(posDispoTotale[7]+"et"+posDispoTotale[143]);
             
 	}
 
@@ -55,8 +59,8 @@ public class CubeSpawner : MonoBehaviour {
     {
         int i = 0;
         Vector2 position = new Vector2(0,0);
-        position.x = Random.Range(1, longueur -1);
-        position.y = Random.Range(1, hauteur -1);
+        position.x = Random.Range((int)((-longueur / 2) + 1), (int)((longueur/2) - 1));
+        position.y = Random.Range((int)(-hauteur / 2) + 1, (int)(hauteur / 2) - 1);
         bool rienAutour = false;
         if (estLibre(position) == true)
         {
@@ -126,11 +130,11 @@ public class CubeSpawner : MonoBehaviour {
         {
             compteur++;
         }
-        if(((i)-(longueur-2)  >= 0) && posPrises[i - (longueur-2)] == true)
+        if (((i) - (longueur - 2) >= 0) && posPrises[i - ((int)longueur - 2)] == true)
         {
             compteur++;
         }
-        if (((i+1) + (longueur - 2)  < ((longueur - 2) * (hauteur - 2))) && posPrises[i + (longueur - 2)] == true) 
+        if (((i + 1) + (longueur - 2) < ((longueur - 2) * (hauteur - 2))) && posPrises[i + ((int)longueur - 2)] == true) 
         {
             compteur++;
         }
