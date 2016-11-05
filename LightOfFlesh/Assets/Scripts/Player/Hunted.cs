@@ -67,14 +67,14 @@ public class Hunted : Player {
         //TODO déplacement progressif
         TorchlightControl();
 
-        if (Input.GetButton("w") && !bonus)
+        /*if (Input.GetButton("w") && !bonus)
         {
             bonus.PickUpBonus();
         }
         if (Input.GetButton("w") && bonus)
         {
             bonus.UseBonus();
-        }
+        }*/
     }
 }
 
