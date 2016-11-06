@@ -1,15 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Hunted : Player {
     [SerializeField]
     Light torchlight;
 
     [SerializeField]
     float torchlightRange;
-
-    Bonus bonus;
+    
+    public Bonus bonus;
+    
     public bool gotKey;
+
+    [SerializeField]
+    public float invulnerableCooldown;
+    public bool invulnerable;
+    public float invulnerableCounter;
+
+    [SerializeField]
+    public float isTrappedCooldown;
+    public bool isTrapped;
+    public float isTrappedCounter;
+
+    [SerializeField]
+    public float isBleedingCooldown;
+    public bool isBleeding;
+    public float isBleedingCounter;
 
     private Animator animator;
 
@@ -17,12 +34,16 @@ public class Hunted : Player {
     void Start () {
         gotKey = false;
         animator = GetComponent<Animator>();
+
+        invulnerableCounter = invulnerableCooldown;
+        isTrappedCounter = isTrappedCooldown;
+        isBleedingCounter = isBleedingCooldown;
     }
 
     void animate()
     {
         if(Input.GetAxis("XBoxHorizontal") == 0 && Input.GetAxis("XBoxVertical") == 0)
-        {
+      {
             animator.SetInteger("moving", 0);
 
             if (Input.GetAxis("RSY") > 0)
@@ -33,23 +54,23 @@ public class Hunted : Player {
                 animator.SetInteger("LightDirection", 1);
             else if(Input.GetAxis("RSX") < 0)
                 animator.SetInteger("LightDirection", 2);
-        }
+       }
         else
-        {
-            animator.SetInteger("moving", 1);
+       {
+           animator.SetInteger("moving", 1);
 
-            if (Input.GetAxis("XBoxVertical") > 0)
+           if (Input.GetAxis("XBoxVertical") > 0)
             {
                 animator.SetInteger("movingDirection", 0);
             }
-            else if (Input.GetAxis("XBoxHorizontal") > 0)
-                animator.SetInteger("movingDirection", 1);
-            else if (Input.GetAxis("XBoxHorizontal") < 0)
-                animator.SetInteger("movingDirection", 2);
-        }
-    }
+           else if (Input.GetAxis("XBoxHorizontal") > 0)
+               animator.SetInteger("movingDirection", 1);
+           else if (Input.GetAxis("XBoxHorizontal") < 0)
+               animator.SetInteger("movingDirection", 2);
+      }
+     }
    void MoveHunted()
-    {
+    {if(!isTrapped)
         Position += new Vector2(Input.GetAxis("XBoxHorizontal"), Input.GetAxis("XBoxVertical")) * Speed * Time.deltaTime;
 
     }
@@ -92,23 +113,65 @@ public class Hunted : Player {
 
         }*/
     }
-    
+
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         MoveHunted();
 
         //TODO déplacement progressif
         TorchlightControl();
 
         animate();
-        /*if (Input.GetButton("w") && !bonus)
+
+        if (!invulnerable)
         {
-            bonus.PickUpBonus();
+
+            invulnerableCounter = invulnerableCooldown;
         }
-        if (Input.GetButton("w") && bonus)
+        else
         {
-            bonus.UseBonus();
-        }*/
+            invulnerableCounter -= Time.deltaTime;
+            if (invulnerableCounter < 0)
+            {
+                invulnerable = false;
+
+                invulnerableCounter = invulnerableCooldown;
+
+            }
+        }
+        if (Input.GetKey("x") && bonus)
+        {
+            bonus.UseBonus(gameObject.GetComponent<AudioSource>());
+        }
+
+        if (!isTrapped)
+        {
+            isTrappedCounter = isTrappedCooldown;
+        }
+        else
+        {
+            isTrappedCounter -= Time.deltaTime;
+            if (isTrappedCounter < 0)
+            {
+                isTrapped = false;
+
+                isTrappedCounter = isTrappedCooldown;
+            }
+        }
+        if (!isBleeding)
+        {
+            isBleedingCounter = isBleedingCooldown;
+        }
+        else
+        {
+            isBleedingCounter -= Time.deltaTime;
+            if (isBleedingCounter < 0)
+            {
+                isBleeding = false;
+                isBleedingCounter = isBleedingCooldown;
+            }
+        }
     }
-}
+    }
 

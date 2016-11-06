@@ -2,17 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public enum eventTypes { a,b}
+public enum eventTypes { a, b }
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     private Queue<eventTypes> events;
-    private List<GameObject> bonus;
+    private List<GameObject> items;
 
-    [SerializeField]
-    GameObject test1;
-    [SerializeField]
-    GameObject test2;
 
     [SerializeField]
     Light torchLight;
@@ -35,54 +32,81 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     float hunterViewDistance;
 
+    [SerializeField]
+    GameObject bloodStains;
+
     public void addEvent(eventTypes newEvent)
     {
         events.Enqueue(newEvent);
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         events = new Queue<eventTypes>();
-        bonus = new List<GameObject>();
 
-        bonus.Add(test1);
-        bonus.Add(test2);
-
-        foreach (var item in bonus)
-        {
-                item.GetComponent<Renderer>().enabled = false;
-
-        }
 
     }
-	
-	void Update () {
+
+    public void preStart()
+    {
+        items = new List<GameObject>();
+
+    }
+    public void initialize()
+    {
+        foreach (var item in items)
+        {
+            item.GetComponent<Renderer>().enabled = false;
+
+        }
+    }
+
+    void Update()
+    {
+        if (victime.isBleeding)
+        {
+            create(bloodStains, victime.transform.localPosition);
+        }
         testBonusVisibility();
 
         testHunterVisibility();
-	}
+    }
 
+    public void create(GameObject objectToCreate, Vector3 position)
+    {
+        GameObject obj = (GameObject)Instantiate(objectToCreate, position, Quaternion.identity);
+
+        items.Add(obj);
+
+    }
     void testBonusVisibility()
     {
         float lightX = Input.GetAxis("RSX");
         float lightY = Input.GetAxis("RSY");
 
-        foreach (var item in bonus)
+
+        foreach (var item in items)
         {
-            float distance = Vector3.Distance(item.transform.position, victime.transform.position);
-
-            float itemX = item.transform.position.x - victime.transform.position.x;
-            float itemY = item.transform.position.y - victime.transform.position.y;
-
-
-            float angle = Vector2.Angle(new Vector2(lightX, lightY), new Vector2(itemX, itemY));
-
-            if (distance < victimeViewDistance || (distance < torchLight.range -2 && angle < torchLight.spotAngle) )
-                item.GetComponent<Renderer>().enabled = true;
-            else
+            if (item != null)
             {
-                item.GetComponent<Renderer>().enabled = false;
+                float distance = Vector3.Distance(item.transform.position, victime.transform.position);
+
+                float itemX = item.transform.position.x - victime.transform.position.x;
+                float itemY = item.transform.position.y - victime.transform.position.y;
+
+
+                float angle = Vector2.Angle(new Vector2(lightX, lightY), new Vector2(itemX, itemY));
+
+                if (distance < victimeViewDistance || (distance < torchLight.range - 2 && angle < torchLight.spotAngle))
+                    item.GetComponent<Renderer>().enabled = true;
+                else
+                {
+                    item.GetComponent<Renderer>().enabled = false;
+                }
+
             }
+
 
         }
     }
@@ -102,7 +126,7 @@ public class GameManager : MonoBehaviour {
 
         if (distance < hunterViewDistance || (distance < torchLight.range - 2 && angle < torchLight.spotAngle))
         {
-            
+
             torchLight.cullingMask = -1;
             huntedCam.cullingMask = -1;
         }
@@ -115,12 +139,12 @@ public class GameManager : MonoBehaviour {
         if (distance < hunterViewDistance)
         {
             hunterCam.cullingMask = -257;
-            
+
         }
         else
         {
             hunterCam.cullingMask = -258;
-          
+
         }
 
     }
