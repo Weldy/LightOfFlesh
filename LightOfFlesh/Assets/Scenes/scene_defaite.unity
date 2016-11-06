@@ -102,11 +102,8 @@ GameObject:
   - 92: {fileID: 140850538}
   - 124: {fileID: 140850537}
   - 81: {fileID: 140850536}
-<<<<<<< HEAD
   - 114: {fileID: 140850541}
   - 114: {fileID: 140850542}
-=======
->>>>>>> d66cc9901a2a92e656f0f708cdbe4f274c71a3e5
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -155,11 +152,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-<<<<<<< HEAD
   orthographic size: 1.2627622
-=======
-  orthographic size: 5
->>>>>>> d66cc9901a2a92e656f0f708cdbe4f274c71a3e5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -186,7 +179,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-<<<<<<< HEAD
 --- !u!114 &140850541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,5 +463,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-=======
->>>>>>> d66cc9901a2a92e656f0f708cdbe4f274c71a3e5
