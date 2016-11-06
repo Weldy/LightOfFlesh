@@ -47,18 +47,14 @@ public class CubeSpawner : MonoBehaviour
         {
             positionCube = randomPlace();
             GetComponent<GameManager>().create(cubeRouge, positionCube);
-            //Object obj = Instantiate(cubeRouge, positionCube, Quaternion.identity);
-
-            //items.Add((GameObject)obj);
+           
         }
 
         for (int i = 0; i < nombreCubeBleu; i++)
         {
             positionCube = randomPlace();
             GetComponent<GameManager>().create(cubeBleu, positionCube);
-            //Object obj = Instantiate(cubeBleu, positionCube, Quaternion.identity);
-
-            //items.Add((GameObject)obj);
+            
         }
 
         //  Vector2 position = new Vector2(0,0);
