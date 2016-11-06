@@ -6,79 +6,44 @@ Direct3D:
     Vendor:   ATI
     VRAM:     754 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.135 seconds
-Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATaton_Data\Managed\System.dll (this message is harmless)
-desktop: 1600x900 60Hz; virtual: 2966x900 at 0,0
+Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.102 seconds
+Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David\Desktop\JIN\LightOfFlesh\LightOfFlesh\ATatons_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3520x1080 at -1600,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
-desktop: 1366x768 60Hz; virtual: 2966x900 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.561670 ms
+UnloadTime: 1.380425 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 12.293496 ms
+UnloadTime: 11.061639 ms
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 989.
-Total: 5.024321 ms (FindLiveObjects: 0.083593 ms CreateObjectMapping: 0.090812 ms MarkObjects: 0.436583 ms  DeleteObjects: 4.411432 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 991.
+Total: 4.343418 ms (FindLiveObjects: 0.069534 ms CreateObjectMapping: 0.055475 ms MarkObjects: 0.270537 ms  DeleteObjects: 3.946731 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.504294 ms
+UnloadTime: 1.137625 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 989.
-Total: 0.552474 ms (FindLiveObjects: 0.083593 ms CreateObjectMapping: 0.050535 ms MarkObjects: 0.405046 ms  DeleteObjects: 0.011399 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 991.
+Total: 0.418725 ms (FindLiveObjects: 0.068014 ms CreateObjectMapping: 0.036476 ms MarkObjects: 0.302074 ms  DeleteObjects: 0.010639 ms)
 
 LOSE
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.010032 ms
+UnloadTime: 1.701878 ms
 
-Unloading 171 unused Assets to reduce memory usage. Loaded Objects now: 204.
-Total: 1.245156 ms (FindLiveObjects: 0.056615 ms CreateObjectMapping: 0.037616 ms MarkObjects: 0.307774 ms  DeleteObjects: 0.840870 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.469640 ms
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 232.
-Total: 0.710920 ms (FindLiveObjects: 0.024697 ms CreateObjectMapping: 0.017098 ms MarkObjects: 0.264457 ms  DeleteObjects: 0.403526 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.088229 ms
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 989.
-Total: 4.226388 ms (FindLiveObjects: 0.082073 ms CreateObjectMapping: 0.059275 ms MarkObjects: 0.354890 ms  DeleteObjects: 3.729009 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.354207 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 989.
-Total: 0.428984 ms (FindLiveObjects: 0.068014 ms CreateObjectMapping: 0.039896 ms MarkObjects: 0.311574 ms  DeleteObjects: 0.008359 ms)
-
-LOSE
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.723916 ms
-
-Unloading 171 unused Assets to reduce memory usage. Loaded Objects now: 204.
-Total: 0.925222 ms (FindLiveObjects: 0.032297 ms CreateObjectMapping: 0.030777 ms MarkObjects: 0.221901 ms  DeleteObjects: 0.637586 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.510677 ms
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 232.
-Total: 0.687362 ms (FindLiveObjects: 0.021278 ms CreateObjectMapping: 0.015958 ms MarkObjects: 0.246599 ms  DeleteObjects: 0.402386 ms)
+Unloading 172 unused Assets to reduce memory usage. Loaded Objects now: 204.
+Total: 1.233377 ms (FindLiveObjects: 0.034577 ms CreateObjectMapping: 0.038756 ms MarkObjects: 0.238620 ms  DeleteObjects: 0.919523 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 258c -> priority: 1 
+  Thread -> id: 325c -> priority: 1 

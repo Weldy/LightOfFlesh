@@ -52,10 +52,11 @@ public class Door : Item {
 
             if (counterOpeningTime < 0)
             {
+                animator.SetInteger("Ouverte", 1);
                 isOpen = true;
                 isOpening = false;
                 counterOpeningTime = openingTime;
-                animator.SetInteger("Ouverte", 1);
+                
             }
         }
         if(isOpen)
