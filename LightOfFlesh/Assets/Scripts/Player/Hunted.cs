@@ -113,9 +113,10 @@ public class Hunted : Player {
 
         }*/
     }
-    
+
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         MoveHunted();
 
         //TODO déplacement progressif
@@ -123,6 +124,22 @@ public class Hunted : Player {
 
         animate();
 
+        if (!invulnerable)
+        {
+
+            invulnerableCounter = invulnerableCooldown;
+        }
+        else
+        {
+            invulnerableCounter -= Time.deltaTime;
+            if (invulnerableCounter < 0)
+            {
+                invulnerable = false;
+
+                invulnerableCounter = invulnerableCooldown;
+
+            }
+        }
         if (Input.GetKey("x") && bonus)
         {
             bonus.UseBonus(gameObject.GetComponent<AudioSource>());
@@ -138,21 +155,23 @@ public class Hunted : Player {
             if (isTrappedCounter < 0)
             {
                 isTrapped = false;
+
+                isTrappedCounter = isTrappedCooldown;
             }
         }
-        if (!isTrapped)
+        if (!isBleeding)
         {
-            isTrappedCounter = isTrappedCooldown;
+            isBleedingCounter = isBleedingCooldown;
         }
         else
         {
-            isTrappedCounter -= Time.deltaTime;
-            if (isTrappedCounter < 0)
+            isBleedingCounter -= Time.deltaTime;
+            if (isBleedingCounter < 0)
             {
-                isTrapped = false;
+                isBleeding = false;
+                isBleedingCounter = isBleedingCooldown;
             }
         }
-
     }
-}
+    }
 

@@ -16,7 +16,7 @@ public class Key : Item {
         victime.gotKey = true;
 
         gameObject.GetComponent<Renderer>().enabled = false;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 	// Update is called once per frame
 	void Update () {

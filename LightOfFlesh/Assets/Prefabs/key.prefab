@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011970690596}
   - 212: {fileID: 212000010480926690}
-  - 114: {fileID: 114000010974169388}
+  - 65: {fileID: 65000010298000894}
+  - 114: {fileID: 114000011770042184}
   m_Layer: 0
   m_Name: key
   m_TagString: Untagged
@@ -41,7 +42,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000010974169388
+--- !u!65 &65000010298000894
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012851088322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.32, y: 0.32, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000011770042184
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -49,7 +62,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012851088322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c08c0fe7033d204c9b5388c7fb52907, type: 3}
+  m_Script: {fileID: 11500000, guid: 07a56fa9d4a41f543be3969bc076c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0}

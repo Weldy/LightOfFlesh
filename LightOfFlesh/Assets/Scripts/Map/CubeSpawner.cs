@@ -15,6 +15,18 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField]
     public int nombreBearTrap;
     [SerializeField]
+    public GameObject Gravel;
+    [SerializeField]
+    public int nombreGravel;
+    [SerializeField]
+    public GameObject Glass;
+    [SerializeField]
+    public int nombreGlass;
+    [SerializeField]
+    public GameObject Hole;
+    [SerializeField]
+    public int nombreHole;
+    [SerializeField]
     public GameObject Key;
     [SerializeField]
     public int nombreKey;
@@ -50,12 +62,33 @@ public class CubeSpawner : MonoBehaviour
            
         }
 
+        for (int i = 0; i < nombreGravel; i++)
+        {
+            positionCube = randomPlace();
+            GetComponent<GameManager>().create(Gravel, positionCube);
+
+        }
+
+        for (int i = 0; i < nombreGlass; i++)
+        {
+            positionCube = randomPlace();
+            GetComponent<GameManager>().create(Glass, positionCube);
+
+        }
+        for (int i = 0; i < nombreHole; i++)
+        {
+            positionCube = randomPlace();
+            GetComponent<GameManager>().create(Hole, positionCube);
+
+        }
         for (int i = 0; i < nombreKey; i++)
         {
             positionCube = randomPlace();
             GetComponent<GameManager>().create(Key, positionCube);
             
         }
+
+
 
         //  Vector2 position = new Vector2(0,0);
         // Instantiate(Key, position, Quaternion.identity);
