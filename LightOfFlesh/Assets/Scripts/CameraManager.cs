@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CameraManager : MonoBehaviour {
 
+
+    [SerializeField]
+    bool follow;
+
     [SerializeField]
     Transform target;
 
@@ -26,18 +30,23 @@ public class CameraManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 targetPosition = new Vector3(target.position.x,target.position.y,transform.position.z);
 
-        if (targetPosition.x > maxX)
-            targetPosition.x = maxX;
-        if (targetPosition.x < minX)
-            targetPosition.x = minX;
-        if (targetPosition.y > maxY)
-            targetPosition.y = maxY;
-        if (targetPosition.y < minY)
-            targetPosition.y = minY;
-         
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        if (follow)
+        {
+            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+
+            if (targetPosition.x > maxX)
+                targetPosition.x = maxX;
+            if (targetPosition.x < minX)
+                targetPosition.x = minX;
+            if (targetPosition.y > maxY)
+                targetPosition.y = maxY;
+            if (targetPosition.y < minY)
+                targetPosition.y = minY;
+
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        }
+        
 
 
     }

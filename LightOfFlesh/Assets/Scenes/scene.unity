@@ -4580,6 +4580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4ba69122c451b4080557f987b5710c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  follow: 1
   target: {fileID: 1692179635}
   maxX: 0.76
   maxY: 1.5
@@ -6436,6 +6437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4ba69122c451b4080557f987b5710c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  follow: 1
   target: {fileID: 322548738}
   maxX: 1.75
   maxY: 2.16
@@ -7795,6 +7797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c459740d3e1c841adaca1979f7dcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destination: scene_defaite
   torchLight: {fileID: 1562958782}
   victime: {fileID: 322548736}
   hunter: {fileID: 38073959}
@@ -7802,6 +7805,8 @@ MonoBehaviour:
   huntedCam: {fileID: 1379120111}
   victimeViewDistance: 0.5
   hunterViewDistance: 2
+  looseDistance: 0.3
+  sound: {fileID: 0}
   bloodStains: {fileID: 1000010436345524, guid: 6a105a3945433c44599ab3dad0727577,
     type: 2}
 --- !u!114 &1587859469
@@ -8305,6 +8310,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!65 &1692179638
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1692179633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.29, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1709132916
 GameObject:
   m_ObjectHideFlags: 0
