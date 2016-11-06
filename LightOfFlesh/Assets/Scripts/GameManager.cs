@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public enum eventTypes { a, b }
 
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     private Queue<eventTypes> events;
     private List<GameObject> items;
 
+    [SerializeField]
+    string destination;
 
     [SerializeField]
     Light torchLight;
@@ -31,6 +34,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     float hunterViewDistance;
+
+    [SerializeField]
+    float looseDistance;
+
+    [SerializeField]
+    AudioClip sound;
 
     [SerializeField]
     GameObject bloodStains;
@@ -146,6 +155,13 @@ public class GameManager : MonoBehaviour
             hunterCam.cullingMask = -258;
 
         }
+
+        if(distance < looseDistance)
+        {
+            Debug.Log("LOSE");
+            SceneManager.LoadScene(destination);
+        }
+        
 
     }
 }

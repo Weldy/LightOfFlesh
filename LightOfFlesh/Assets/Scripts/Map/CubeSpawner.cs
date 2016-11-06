@@ -1,6 +1,4 @@
-﻿/*
-
-<<<<<<< HEAD
+﻿
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -155,7 +153,7 @@ public class CubeSpawner : MonoBehaviour
     bool estLibre(Vector2 position)
     {
         bool estLibre = false;
-        int compteur = 0;
+        // int compteur = 0;
         int i = 0;
         bool found = false;
         while (found == false)
@@ -170,7 +168,7 @@ public class CubeSpawner : MonoBehaviour
                 i++;
             }
         }
-
+        /*
         if (posPrises[i] == true)
         {
             compteur++;
@@ -194,6 +192,15 @@ public class CubeSpawner : MonoBehaviour
 
         if (compteur == 0)
             estLibre = true;
+        return estLibre;
+        //if(cubeBleu.collider.)
+    }*/
+        Collider[] overLap = Physics.OverlapBox(new Vector3(position.x, position.y, 0), new Vector3(1f, 1f, 0));
+        Item item = overLap[0].gameObject.GetComponent<Item>();
+        if (item)
+        {
+            return !estLibre;
+        }
         return estLibre;
     }
 

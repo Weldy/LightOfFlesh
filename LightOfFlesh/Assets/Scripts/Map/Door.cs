@@ -20,13 +20,23 @@ public class Door : Item {
         counterOpeningTime=openingTime;
         sound = Resources.Load("Sounds/cat") as AudioClip;
     }
-	
-    public void startOpen(AudioSource source)
+    public void doorCollide(Hunted victime, AudioSource source)
     {
-        //if player has key
-        source.PlayOneShot(sound, 1);
-        isOpening = true;
+        if (isOpen)
+        {
+            //WINWINWIN
+        }
+        else {
+            if (victime.gotKey)
+            {
+                source.PlayOneShot(sound, 1);
+                isOpening = true;
+            }
+
+           
+        }
     }
+
     //on collision,if open win, if got key startopen()
 	// Update is called once per frame
 	void Update () {
@@ -39,6 +49,7 @@ public class Door : Item {
                 isOpen = true;
                 isOpening = false;
                 counterOpeningTime = openingTime;
+                gameObject.GetComponent<Renderer>().enabled = false;
             }
         }
         if(isOpen)
@@ -48,6 +59,7 @@ public class Door : Item {
             {
                 isOpen = false;
                 counterOpeningWindow = openingWindow;
+                gameObject.GetComponent<Renderer>().enabled = true;
             }
         }
     }

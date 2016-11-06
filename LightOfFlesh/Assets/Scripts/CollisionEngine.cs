@@ -87,21 +87,23 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
-                    if (door.isOpen)
-                    {
-                        Debug.Log("WINWINWIN");
-                    }
-                    else
-                    {
-                        if (victime.gotKey)
-                        {
-                            door.startOpen(victime.GetComponent<AudioSource>());
-                        }
-                    }
+
+                    door.doorCollide(victime, victime.GetComponent<AudioSource>());
                 }
                 if (item.itemType == ItemType.Obstacle)
                 {
                     colliding = true;
+                }
+
+                Debug.Log("if");
+            }
+            else 
+            {
+                Debug.Log("autre");
+                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
+                if (hunter)
+                {
+                    
                 }
             }
         }
@@ -135,21 +137,20 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
-                    if (door.isOpen)
-                    {
-                        Debug.Log("WINWINWIN");
-                    }
-                    else
-                    {
-                        if (victime.gotKey)
-                        {
-                            door.startOpen(victime.GetComponent<AudioSource>());
-                        }
-                    }
+
+                    door.doorCollide(victime, victime.GetComponent<AudioSource>());
                 }
                 if (item.itemType == ItemType.Obstacle)
                 {
                     colliding = true;
+                }
+            }
+            else
+            {
+                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
+                if (!pasUneVictime && hunter)
+                {
+                    Debug.Log("LOSE");
                 }
             }
         }
@@ -183,23 +184,23 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
-                    if (door.isOpen)
-                    {
-                        Debug.Log("WINWINWIN");
-                    }
-                    else
-                    {
-                        if (victime.gotKey)
-                        {
-                            door.startOpen(victime.GetComponent<AudioSource>());
-                        }
-                    }
+
+                    door.doorCollide(victime, victime.GetComponent<AudioSource>());
                 }
                 if (item.itemType == ItemType.Obstacle)
                 {
                     colliding = true;
                 }
+            }else
+            {
+                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
+                if (!pasUneVictime && hunter)
+                {
+                    Debug.Log("LOSE");
+                }
             }
+
+            
         }
 
         if (hitRight.collider != null)
@@ -231,21 +232,20 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
-                    if (door.isOpen)
-                    {
-                        Debug.Log("WINWINWIN");
-                    }
-                    else
-                    {
-                        if (victime.gotKey)
-                        {
-                            door.startOpen(victime.GetComponent<AudioSource>());
-                        }
-                    }
+
+                    door.doorCollide(victime, victime.GetComponent<AudioSource>());
                 }
                 if (item.itemType == ItemType.Obstacle)
                 {
                     colliding = true;
+                }
+            }
+            else
+            {
+                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
+                if (!pasUneVictime && hunter)
+                {
+                    Debug.Log("LOSE");
                 }
             }
         }
