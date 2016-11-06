@@ -11,13 +11,13 @@ AnimatorController:
   - m_Name: Ouverture
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
+    m_DefaultInt: 1
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Ouverte
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
+    m_DefaultInt: 1
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
@@ -88,7 +88,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: "PorteFerm\xE9e"
-  m_Speed: 0.3
+  m_Speed: 0
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101000011881232586}
@@ -100,7 +100,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8499c143b80b8ec438a341c4d7fc76b2, type: 2}
+  m_Motion: {fileID: 7400000, guid: de725862c0a179d488d1a45f018ef24e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -113,7 +113,7 @@ AnimatorState:
   m_PrefabInternal: {fileID: 0}
   m_Name: Ouverte
   m_Speed: 0
-  m_CycleOffset: 1
+  m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -123,7 +123,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8499c143b80b8ec438a341c4d7fc76b2, type: 2}
+  m_Motion: {fileID: 7400000, guid: badb7cef3389da742af0b60b8aa8c2a5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,7 +135,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: En ouverture
-  m_Speed: 1
+  m_Speed: 0.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101000011835790452}

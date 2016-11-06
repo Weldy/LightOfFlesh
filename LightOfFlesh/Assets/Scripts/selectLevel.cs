@@ -8,7 +8,11 @@ public class selectLevel : MonoBehaviour {
     public string destination;
     public void loadLevel()
     {
+        
         SceneManager.LoadScene(destination);
+
+
+
     }
 
     public void quitGame()
