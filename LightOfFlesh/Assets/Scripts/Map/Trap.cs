@@ -40,7 +40,7 @@ public class Trap : Item {
     {
         if (!victime.invulnerable)
         {
-           Debug.Log("trap" + trapType);
+          
             source.PlayOneShot(sound, 1);
             victime.invulnerable = true;
             sonar.startEffect();

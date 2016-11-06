@@ -34,10 +34,17 @@ public class CubeSpawner : MonoBehaviour
     private Vector2[] posDispoTotale;
     private bool[] posPrises;
     
+    private List<Vector2> keyPosistions;
 
     // Use this for initialization
     void Start()
     {
+
+        keyPosistions = new List<Vector2>();
+        keyPosistions.Add(new Vector2(-3.88f, 4.63f));
+        keyPosistions.Add(new Vector2(-6.19f, -4.31f));
+        keyPosistions.Add(new Vector2(3.11f, -4.31f));
+        keyPosistions.Add(new Vector2(6.42f, 6.16f));
 
         int m = 0;
         posDispoTotale = new Vector2[(int)(longueur - 2) * (int)(hauteur - 2)];
@@ -83,7 +90,7 @@ public class CubeSpawner : MonoBehaviour
         }
         for (int i = 0; i < nombreKey; i++)
         {
-            positionCube = randomPlace();
+            positionCube = keyPosistions[Random.Range(0, 3)];
             GetComponent<GameManager>().create(Key, positionCube);
             
         }
