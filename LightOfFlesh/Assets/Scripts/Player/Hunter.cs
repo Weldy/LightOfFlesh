@@ -9,6 +9,9 @@ public class Hunter : Player {
     private float sprintDistance;
     [SerializeField]
     private float sprintDeviate;
+
+    [SerializeField]
+    private float maxSpeed;
     //   [SerializeField]
     //    private float maxSpeed;
 
@@ -67,11 +70,14 @@ public class Hunter : Player {
         {
             currentSpeed += (sprintCounterX+sprintCounterY - sprintDistance) * sprintSpeed;
        
-        }
-        else
+        }else
         {
             currentSpeed = Speed;
         }
+
+        if (currentSpeed > maxSpeed)
+            currentSpeed = maxSpeed;
+
         Position += new Vector2(x, y) * currentSpeed * Time.deltaTime;
 
         if (x * sensH > 0)

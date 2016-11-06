@@ -13,6 +13,9 @@ public class CollisionEngine : MonoBehaviour
     private Hunted victime;
 
     [SerializeField]
+    private bool pasUneVictime;
+
+    [SerializeField]
     private Transform rightCheck;
     [SerializeField]
     private Transform leftCheck;
@@ -61,27 +64,27 @@ public class CollisionEngine : MonoBehaviour
             if (item)
             {
                 
-                if (item.itemType == ItemType.Trap)
+                if (item.itemType == ItemType.Trap && !pasUneVictime)
                 {
                    
                     Trap trap = (Trap)item;
                     trap.Activate(victime, victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Bonus)
+                if (item.itemType == ItemType.Bonus && !pasUneVictime)
                 {
                     Bonus bonus = (Bonus)item;
                     bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
                 }
 
 
-                if (item.itemType == ItemType.Key)
+                if (item.itemType == ItemType.Key && !pasUneVictime)
                 {
                     Key key = (Key)item;
                     key.keyCollide(victime, victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Door)
+                if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
                     if (door.isOpen)
@@ -110,26 +113,26 @@ public class CollisionEngine : MonoBehaviour
             Item item = hitTop.collider.GetComponent<Item>();
             if (item)
             {
-                if (item.itemType == ItemType.Trap)
+                if (item.itemType == ItemType.Trap && !pasUneVictime)
                 {
                     Trap trap = (Trap)item;
                     trap.Activate(victime,  victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Bonus)
+                if (item.itemType == ItemType.Bonus && !pasUneVictime)
                 {
                     Bonus bonus = (Bonus)item;
                     bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
                 }
 
 
-                if (item.itemType == ItemType.Key)
+                if (item.itemType == ItemType.Key && !pasUneVictime)
                 {
                     Key key = (Key)item;
                     key.keyCollide(victime, victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Door)
+                if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
                     if (door.isOpen)
@@ -158,26 +161,26 @@ public class CollisionEngine : MonoBehaviour
             Item item = hitLeft.collider.GetComponent<Item>();
             if (item)
             {
-                if (item.itemType == ItemType.Trap)
+                if (item.itemType == ItemType.Trap && !pasUneVictime)
                 {
                     Trap trap = (Trap)item;
                     trap.Activate(victime,  victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Bonus)
+                if (item.itemType == ItemType.Bonus && !pasUneVictime)
                 {
                     Bonus bonus = (Bonus)item;
                     bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
                 }
 
 
-                if (item.itemType == ItemType.Key)
+                if (item.itemType == ItemType.Key && !pasUneVictime)
                 {
                     Key key = (Key)item;
                     key.keyCollide(victime, victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Door)
+                if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
                     if (door.isOpen)
@@ -206,26 +209,26 @@ public class CollisionEngine : MonoBehaviour
             Item item = hitRight.collider.GetComponent<Item>();
             if (item)
             {
-                if (item.itemType == ItemType.Trap)
+                if (item.itemType == ItemType.Trap && !pasUneVictime)
                 {
                     Trap trap = (Trap)item;
                     trap.Activate(victime,  victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Bonus)
+                if (item.itemType == ItemType.Bonus && !pasUneVictime)
                 {
                     Bonus bonus = (Bonus)item;
                     bonus.PickUpBonus(victime, victime.GetComponent<AudioSource>());
                 }
 
 
-                if (item.itemType == ItemType.Key)
+                if (item.itemType == ItemType.Key && !pasUneVictime)
                 {
                     Key key = (Key)item;
                     key.keyCollide(victime, victime.GetComponent<AudioSource>());
 
                 }
-                if (item.itemType == ItemType.Door)
+                if (item.itemType == ItemType.Door && !pasUneVictime)
                 {
                     Door door = (Door)item;
                     if (door.isOpen)

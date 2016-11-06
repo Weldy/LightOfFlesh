@@ -11,13 +11,13 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField]
     public float longueur;
     [SerializeField]
-    public GameObject cubeRouge;
+    public GameObject BearTrap;
     [SerializeField]
-    public int nombreCubeRouge;
+    public int nombreBearTrap;
     [SerializeField]
-    public GameObject cubeBleu;
+    public GameObject Key;
     [SerializeField]
-    public int nombreCubeBleu;
+    public int nombreKey;
 
     private Vector2[] posDispoTotale;
     private bool[] posPrises;
@@ -43,22 +43,22 @@ public class CubeSpawner : MonoBehaviour
         GetComponent<GameManager>().preStart();
 
         Vector2 positionCube;
-        for (int i = 0; i < nombreCubeRouge; i++)
+        for (int i = 0; i < nombreBearTrap; i++)
         {
             positionCube = randomPlace();
-            GetComponent<GameManager>().create(cubeRouge, positionCube);
+            GetComponent<GameManager>().create(BearTrap, positionCube);
            
         }
 
-        for (int i = 0; i < nombreCubeBleu; i++)
+        for (int i = 0; i < nombreKey; i++)
         {
             positionCube = randomPlace();
-            GetComponent<GameManager>().create(cubeBleu, positionCube);
+            GetComponent<GameManager>().create(Key, positionCube);
             
         }
 
         //  Vector2 position = new Vector2(0,0);
-        // Instantiate(cubeBleu, position, Quaternion.identity);
+        // Instantiate(Key, position, Quaternion.identity);
         //Debug.Log(posDispoTotale[7] + "et" + posDispoTotale[143]);
 
         GetComponent<GameManager>().initialize();
