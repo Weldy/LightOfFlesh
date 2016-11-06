@@ -65,7 +65,7 @@ public class CollisionEngine : MonoBehaviour
                 {
                    
                     Trap trap = (Trap)item;
-                    trap.Activate(victime.GetComponent<AudioSource>());
+                    trap.Activate(victime, victime.GetComponent<AudioSource>());
 
                 }
                 if (item.itemType == ItemType.Bonus)
@@ -113,7 +113,7 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Trap)
                 {
                     Trap trap = (Trap)item;
-                    trap.Activate(victime.GetComponent<AudioSource>());
+                    trap.Activate(victime,  victime.GetComponent<AudioSource>());
 
                 }
                 if (item.itemType == ItemType.Bonus)
@@ -161,7 +161,7 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Trap)
                 {
                     Trap trap = (Trap)item;
-                    trap.Activate(victime.GetComponent<AudioSource>());
+                    trap.Activate(victime,  victime.GetComponent<AudioSource>());
 
                 }
                 if (item.itemType == ItemType.Bonus)
@@ -209,7 +209,7 @@ public class CollisionEngine : MonoBehaviour
                 if (item.itemType == ItemType.Trap)
                 {
                     Trap trap = (Trap)item;
-                    trap.Activate(victime.GetComponent<AudioSource>());
+                    trap.Activate(victime,  victime.GetComponent<AudioSource>());
 
                 }
                 if (item.itemType == ItemType.Bonus)

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-public enum ItemType { Obstacle, Trap, Bonus, Door, Key};
+public enum ItemType { Obstacle, Trap, Bonus, Door, Key, BloodStains};
 public  class Item : MonoBehaviour {
 
     [SerializeField]
@@ -20,7 +20,6 @@ public  class Item : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-       
     }
 	
 	// Update is called once per frame

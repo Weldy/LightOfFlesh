@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public enum eventTypes { a,b}
+public enum eventTypes { a, b }
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     private Queue<eventTypes> events;
     private List<GameObject> items;
@@ -31,15 +32,19 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     float hunterViewDistance;
 
+    [SerializeField]
+    GameObject bloodStains;
+
     public void addEvent(eventTypes newEvent)
     {
         events.Enqueue(newEvent);
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         events = new Queue<eventTypes>();
-        
+
 
     }
 
@@ -56,19 +61,24 @@ public class GameManager : MonoBehaviour {
 
         }
     }
-	
-	void Update () {
+
+    void Update()
+    {
+        if (victime.isBleeding)
+        {
+            create(bloodStains, victime.transform.localPosition);
+        }
         testBonusVisibility();
 
         testHunterVisibility();
-	}
+    }
 
     public void create(GameObject objectToCreate, Vector3 position)
     {
         GameObject obj = (GameObject)Instantiate(objectToCreate, position, Quaternion.identity);
 
         items.Add(obj);
-        
+
     }
     void testBonusVisibility()
     {
@@ -78,7 +88,7 @@ public class GameManager : MonoBehaviour {
 
         foreach (var item in items)
         {
-            if(item != null)
+            if (item != null)
             {
                 float distance = Vector3.Distance(item.transform.position, victime.transform.position);
 
@@ -116,7 +126,7 @@ public class GameManager : MonoBehaviour {
 
         if (distance < hunterViewDistance || (distance < torchLight.range - 2 && angle < torchLight.spotAngle))
         {
-            
+
             torchLight.cullingMask = -1;
             huntedCam.cullingMask = -1;
         }
@@ -129,12 +139,12 @@ public class GameManager : MonoBehaviour {
         if (distance < hunterViewDistance)
         {
             hunterCam.cullingMask = -257;
-            
+
         }
         else
         {
             hunterCam.cullingMask = -258;
-          
+
         }
 
     }
