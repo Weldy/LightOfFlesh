@@ -94,18 +94,10 @@ public class CollisionEngine : MonoBehaviour
                 {
                     colliding = true;
                 }
-
-                Debug.Log("if");
+                
             }
-            else 
-            {
-                Debug.Log("autre");
-                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
-                if (hunter)
-                {
-                    
-                }
-            }
+           
+          
         }
 
         if (hitTop.collider != null)
@@ -145,14 +137,7 @@ public class CollisionEngine : MonoBehaviour
                     colliding = true;
                 }
             }
-            else
-            {
-                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
-                if (!pasUneVictime && hunter)
-                {
-                    Debug.Log("LOSE");
-                }
-            }
+            
         }
 
         if (hitLeft.collider != null)
@@ -185,18 +170,13 @@ public class CollisionEngine : MonoBehaviour
                 {
                     Door door = (Door)item;
 
+                    if (!door.isOpen)
+                        colliding = true;
                     door.doorCollide(victime, victime.GetComponent<AudioSource>());
                 }
                 if (item.itemType == ItemType.Obstacle)
                 {
                     colliding = true;
-                }
-            }else
-            {
-                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
-                if (!pasUneVictime && hunter)
-                {
-                    Debug.Log("LOSE");
                 }
             }
 
@@ -240,14 +220,7 @@ public class CollisionEngine : MonoBehaviour
                     colliding = true;
                 }
             }
-            else
-            {
-                Hunter hunter = hitBottom.collider.GetComponent<Hunter>();
-                if (!pasUneVictime && hunter)
-                {
-                    Debug.Log("LOSE");
-                }
-            }
+            
         }
 
 

@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     AudioClip sound;
 
     [SerializeField]
+    float cooldown;
+
+    float cooldownCounter;
+
+    [SerializeField]
     GameObject bloodStains;
 
     public void addEvent(eventTypes newEvent)
@@ -53,7 +58,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         events = new Queue<eventTypes>();
-
+        cooldownCounter = cooldown;
 
     }
 
@@ -148,15 +153,20 @@ public class GameManager : MonoBehaviour
         if (distance < hunterViewDistance)
         {
             hunterCam.cullingMask = -257;
-
+            if (cooldownCounter < 0)
+            {
+                AudioSource source = victime.GetComponent<AudioSource>();
+                source.PlayOneShot(sound, 1-distance/hunterViewDistance);
+                cooldownCounter =cooldown;
+            }
         }
         else
         {
             hunterCam.cullingMask = -258;
 
         }
-
-        if(distance < looseDistance)
+        cooldownCounter -= Time.deltaTime;
+        if (distance < looseDistance)
         {
             Debug.Log("LOSE");
             SceneManager.LoadScene(destination);

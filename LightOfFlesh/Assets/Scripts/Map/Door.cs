@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Door : Item {
     public bool isOpening;
@@ -10,6 +11,8 @@ public class Door : Item {
     [SerializeField]
     private float openingTime;
 
+    Animator animator;
+
     private float counterOpeningWindow;
     private float counterOpeningTime;
     // Use this for initialization
@@ -18,19 +21,22 @@ public class Door : Item {
         isOpening = false;
         counterOpeningWindow=openingWindow;
         counterOpeningTime=openingTime;
-        sound = Resources.Load("Sounds/cat") as AudioClip;
+        sound = Resources.Load("Sounds/door") as AudioClip;
+
+        animator = GetComponent<Animator>();
     }
     public void doorCollide(Hunted victime, AudioSource source)
     {
         if (isOpen)
         {
-            //WINWINWIN
+            SceneManager.LoadScene("scene_victoire");
         }
         else {
             if (victime.gotKey)
             {
-                source.PlayOneShot(sound, 1);
+                if (!isOpening) { source.PlayOneShot(sound, 1.2f); }
                 isOpening = true;
+                animator.SetInteger("Ouverture", 1);
             }
 
            
@@ -49,7 +55,7 @@ public class Door : Item {
                 isOpen = true;
                 isOpening = false;
                 counterOpeningTime = openingTime;
-                gameObject.GetComponent<Renderer>().enabled = false;
+                animator.SetInteger("Ouverte", 1);
             }
         }
         if(isOpen)
@@ -58,8 +64,9 @@ public class Door : Item {
             if (counterOpeningWindow < 0)
             {
                 isOpen = false;
-                counterOpeningWindow = openingWindow;
-                gameObject.GetComponent<Renderer>().enabled = true;
+                counterOpeningWindow = openingWindow;;
+                animator.SetInteger("Ouverture", 0);
+                animator.SetInteger("Ouverte", 0);
             }
         }
     }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BloodStains : Item {
 
-    AudioClip sound;
+    //AudioClip sound;
     
     [SerializeField]
     private float lifespan;
@@ -12,7 +12,7 @@ public class BloodStains : Item {
     void Start()
     {
         lifespanCounter = lifespan;
-        sound = Resources.Load("Sounds/cat") as AudioClip;
+        //sound = Resources.Load("Sounds/cat") as AudioClip;
         itemType = ItemType.BloodStains;
 
     }

@@ -7,12 +7,12 @@ public class Key : Item {
     
     // Use this for initialization
     void Start () {
-        sound = Resources.Load("Sounds/cat") as AudioClip;
+        sound = Resources.Load("Sounds/key") as AudioClip;
     }
 	//on collision play sound+change bool in player+destroykey
     public void keyCollide(Hunted victime, AudioSource source)
     {
-        source.PlayOneShot(sound, 1);
+        source.PlayOneShot(sound, 0.5f);
         victime.gotKey = true;
 
         gameObject.GetComponent<Renderer>().enabled = false;

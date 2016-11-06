@@ -11,8 +11,6 @@ public class selectLevel : MonoBehaviour {
         
         SceneManager.LoadScene(destination);
 
-
-
     }
 
     public void quitGame()
