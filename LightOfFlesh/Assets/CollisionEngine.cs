@@ -40,8 +40,6 @@ public class CollisionEngine : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        float x = centerCheck.transform.position.x - rightCheck.transform.position.x;
-        float y = centerCheck.transform.position.y - bottomCheck.transform.position.y;
         
     }
 

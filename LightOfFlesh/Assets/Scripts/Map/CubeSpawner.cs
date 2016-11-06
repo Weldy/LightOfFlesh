@@ -21,16 +21,18 @@ public class CubeSpawner : MonoBehaviour
 
     private Vector2[] posDispoTotale;
     private bool[] posPrises;
+    
 
     // Use this for initialization
     void Start()
     {
+
         int m = 0;
         posDispoTotale = new Vector2[(int)(longueur - 2) * (int)(hauteur - 2)];
         posPrises = new bool[(int)(longueur - 2) * (int)(hauteur - 2)];
-        for (float j = ((-hauteur / 2) + 1); j < ((hauteur / 2) - 1); j++)
+        for (float j = (int)((-hauteur / 2) + 1); j < (int)((hauteur / 2) - 1); j++)
         {
-            for (float i = ((-longueur / 2) + 1); i < ((longueur / 2) - 1); i++)
+            for (float i = (int)((-longueur / 2) + 1); i < (int)((longueur / 2) - 1); i++)
             {
                 posDispoTotale[m] = new Vector2(i, j);
                 posPrises[m] = false;
@@ -38,22 +40,32 @@ public class CubeSpawner : MonoBehaviour
             }
         }
 
+        GetComponent<GameManager>().preStart();
+
         Vector2 positionCube;
         for (int i = 0; i < nombreCubeRouge; i++)
         {
             positionCube = randomPlace();
-            Instantiate(cubeRouge, positionCube, Quaternion.identity);
+            GetComponent<GameManager>().create(cubeRouge, positionCube);
+            //Object obj = Instantiate(cubeRouge, positionCube, Quaternion.identity);
+
+            //items.Add((GameObject)obj);
         }
 
         for (int i = 0; i < nombreCubeBleu; i++)
         {
             positionCube = randomPlace();
-            Instantiate(cubeBleu, positionCube, Quaternion.identity);
+            GetComponent<GameManager>().create(cubeBleu, positionCube);
+            //Object obj = Instantiate(cubeBleu, positionCube, Quaternion.identity);
+
+            //items.Add((GameObject)obj);
         }
 
         //  Vector2 position = new Vector2(0,0);
         // Instantiate(cubeBleu, position, Quaternion.identity);
         //Debug.Log(posDispoTotale[7] + "et" + posDispoTotale[143]);
+
+        GetComponent<GameManager>().initialize();
 
     }
 

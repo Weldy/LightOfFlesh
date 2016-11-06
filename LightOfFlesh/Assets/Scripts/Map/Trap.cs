@@ -47,8 +47,7 @@ public class Trap : Item {
         source.PlayOneShot(sound, 1);
 
         sonar.startEffect();
-
-        Debug.Log("Sonar end");
+        
         switch (trapType)
         {
             case TrapType.BearTrap:
