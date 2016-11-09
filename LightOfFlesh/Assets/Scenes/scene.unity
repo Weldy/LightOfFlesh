@@ -4643,7 +4643,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 940751164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.66, y: -0.52, z: -10}
+  m_LocalPosition: {x: 1.66, y: 2.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4662,10 +4662,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: 1
   target: {fileID: 1692179635}
-  maxX: 2.91
-  maxY: 1.66
+  maxX: 1.66
+  maxY: 2.3
   minX: -1.48
-  minY: -3.08
+  minY: -2.19
   smoothTime: 0.4
 --- !u!1 &955764943
 GameObject:

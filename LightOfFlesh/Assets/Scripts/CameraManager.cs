@@ -19,14 +19,16 @@ public class CameraManager : MonoBehaviour {
     [SerializeField]
     float minY;
 
+    Camera thisCamera;
+
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
 
 
 
     void Start () {
-	
-	}
+        thisCamera = this.GetComponent<Camera>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,8 +48,20 @@ public class CameraManager : MonoBehaviour {
 
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
-        
 
+        if (Input.GetButtonDown("F5"))
+        {
+            
+            if (thisCamera.targetDisplay == 0)
+            {
+                thisCamera.targetDisplay = 1;
+            }
+            else if (thisCamera.targetDisplay == 1)
+            {
+                thisCamera.targetDisplay = 0;
+            }
+            
+        }
 
     }
 }
